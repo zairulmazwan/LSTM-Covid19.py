@@ -44,6 +44,7 @@ trainY=pd.DataFrame(trainY)
 
 trainDset = pd.concat([trainX, trainY], axis=1)
 trainDset.to_csv("TrainDset.csv")
+print(trainDset[1:10])
 
 testX=pd.DataFrame(testX)
 testY=pd.DataFrame(testY)

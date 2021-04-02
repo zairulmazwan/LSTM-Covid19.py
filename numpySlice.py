@@ -13,9 +13,12 @@ data2 = pd.DataFrame({
 
 
 dataset = pd.concat([data1, data2], axis=1)
-print(dataset)
+print("All data : ",dataset)
+print("Slice Data : ",dataset.iloc[1:,:2]) #slice dataframe using iloc (index) - rows and columns
 numpyDset = dataset.values
 
 print("Numpy dataset : ",numpyDset)
-print("Numpy dataset slice : ",numpyDset[:,1])
+print("Numpy dataset slice : ",numpyDset[:,1]) #slice on numpy var
+
+
 
