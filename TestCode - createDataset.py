@@ -4,7 +4,7 @@ import numpy
 
 dataframe = pd.read_csv('Deaths1.csv', usecols=[2], engine='python')
 dataframe = dataframe.values
-print("Length ",len(dataframe))
+print("Length - raw data",len(dataframe))
 #print(type(dataframe))
 
 #print(dataframe.head(4))
@@ -37,12 +37,18 @@ trainX, trainY = create_dataset(dataframe, lookBack)
 testX, testY = create_dataset(dataframe, lookBack)
 
 print(trainX[:5], trainY[:5], end=" ")
-print("Length x and y: ", len(trainX), len(trainY))
+print("\nLength train x and y: ", len(trainX), len(trainY))
+print("\nLength test x and y: ", len(trainX), len(trainY))
 trainX=pd.DataFrame(trainX)
 trainY=pd.DataFrame(trainY)
 
 trainDset = pd.concat([trainX, trainY], axis=1)
 trainDset.to_csv("TrainDset.csv")
+
+testX=pd.DataFrame(testX)
+testY=pd.DataFrame(testY)
+testDset = pd.concat([testX, testY], axis=1)
+testDset.to_csv("TestDset.csv")
 
 # trainX = numpy.reshape(trainX, (trainX.shape[0], 1, trainX.shape[1]))
 # testX = numpy.reshape(testX, (testX.shape[0], 1, testX.shape[1]))
